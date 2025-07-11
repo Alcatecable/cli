@@ -421,11 +421,12 @@
             alt="Logo"
           />
         </a>
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
           <a
             href="https://app.neurolint.dev"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open NeuroLint App in new tab"
             >App</a
           >
           <a
@@ -457,6 +458,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="btn"
+            aria-label="Sign up for NeuroLint account"
             >Sign Up</a
           >
         </nav>
@@ -469,18 +471,19 @@
         alt="NeuroLint CLI Logo"
         class="hero-logo"
       />
-      <div class="typewriter" id="typewriter"></div>
-      <div class="hero-desc">
+      <h1 class="typewriter" id="typewriter" aria-live="polite"></h1>
+      <p class="hero-desc">
         The NeuroLint CLI brings the power of advanced code analysis and
         transformation to your terminal. Automate code quality, integrate with
         CI/CD, and batch-fix your codebase with a single command.
-      </div>
+      </p>
       <div class="hero-actions">
         <a
           href="https://docs.neurolint.dev/cli"
           target="_blank"
           rel="noopener noreferrer"
           class="btn"
+          aria-label="Read NeuroLint CLI documentation in new tab"
           >Read CLI Docs</a
         >
         <a
@@ -488,11 +491,13 @@
           target="_blank"
           rel="noopener noreferrer"
           class="btn"
+          aria-label="Install NeuroLint CLI via npm in new tab"
           >Install via npm</a
         >
       </div>
     </section>
     <!-- Features Section -->
+    <h2 class="sr-only">NeuroLint CLI Features</h2>
     <section class="features">
       <div class="feature-card">
         <div class="feature-title">Automated Linting</div>
