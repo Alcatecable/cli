@@ -126,34 +126,61 @@
         color: var(--muted);
         font-weight: 500;
         font-size: 1rem;
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.25rem;
         border: 1px solid transparent;
         border-radius: 6px;
         transition:
-          color 0.2s,
-          border-color 0.2s;
+          color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .nav a:hover,
+      .nav a:focus,
       .nav a.active {
         color: var(--foreground);
         border-color: var(--border);
+        background-color: rgba(255, 255, 255, 0.05);
+        outline: none;
+      }
+      .nav a:focus-visible {
+        outline: 2px solid var(--foreground);
+        outline-offset: 2px;
       }
       .nav .btn {
         background: var(--primary);
         color: var(--primary-foreground);
         font-weight: 600;
-        padding: 0.5rem 1.5rem;
+        padding: 0.75rem 1.75rem;
         border: 1px solid var(--border);
         border-radius: 6px;
         cursor: pointer;
         transition:
-          background 0.2s,
-          color 0.2s;
+          background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         margin-left: 0.5rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .nav .btn:hover {
+      .nav .btn:hover,
+      .nav .btn:focus {
         background: var(--background);
         color: var(--foreground);
+        transform: translateY(-1px);
+        outline: none;
+      }
+      .nav .btn:focus-visible {
+        outline: 2px solid var(--foreground);
+        outline-offset: 2px;
+      }
+      .nav .btn:active {
+        transform: translateY(0);
       }
       .hero {
         min-height: 80vh;
@@ -200,17 +227,35 @@
         color: var(--primary-foreground);
         font-weight: 700;
         font-size: 1.1rem;
-        padding: 1rem 2.5rem;
+        padding: 1.25rem 2.75rem;
         border: 1px solid var(--border);
         border-radius: 8px;
         cursor: pointer;
         transition:
-          background 0.2s,
-          color 0.2s;
+          background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      .hero-actions .btn:hover {
+      .hero-actions .btn:hover,
+      .hero-actions .btn:focus {
         background: var(--background);
         color: var(--foreground);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        outline: none;
+      }
+      .hero-actions .btn:focus-visible {
+        outline: 2px solid var(--foreground);
+        outline-offset: 2px;
+      }
+      .hero-actions .btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       .features {
         max-width: 1100px;
@@ -228,10 +273,15 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        transition: border-color 0.2s;
+        transition:
+          border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .feature-card:hover {
         border-color: var(--foreground);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
       .feature-title {
         font-size: 1.4rem;
@@ -281,14 +331,82 @@
         color: var(--border-subtle);
         font-size: 0.95rem;
       }
-      @media (max-width: 700px) {
-        .header-inner,
-        .footer-inner {
+      @media (max-width: 768px) {
+        .header-inner {
           flex-direction: column;
           gap: 1rem;
+          padding: 1rem;
+        }
+        .nav {
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          justify-content: center;
+        }
+        .nav a {
+          padding: 0.75rem 1rem;
+          font-size: 0.9rem;
+        }
+        .nav .btn {
+          margin-left: 0;
+          padding: 0.75rem 1.5rem;
+        }
+        .hero {
+          padding: 3rem 1rem 2rem 1rem;
+        }
+        .typewriter {
+          font-size: 2rem;
+          min-height: 2.5rem;
+        }
+        .hero-desc {
+          font-size: 1.1rem;
+        }
+        .hero-actions {
+          flex-direction: column;
+          width: 100%;
+          align-items: stretch;
+        }
+        .hero-actions .btn {
+          padding: 1rem 2rem;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
         }
         .features {
           grid-template-columns: 1fr;
+          gap: 1.5rem;
+          padding: 3rem 1rem;
+        }
+        .feature-card {
+          padding: 2rem 1.5rem;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 1.5rem;
+          text-align: center;
+        }
+        .footer-links {
+          gap: 1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .nav {
+          gap: 0.5rem;
+        }
+        .nav a {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.85rem;
+        }
+        .typewriter {
+          font-size: 1.75rem;
+        }
+        .hero-desc {
+          font-size: 1rem;
+        }
+        .feature-title {
+          font-size: 1.25rem;
+        }
+        .feature-desc {
+          font-size: 1rem;
         }
       }
     </style>
