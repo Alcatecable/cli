@@ -379,40 +379,72 @@
       }
       .footer {
         width: 100%;
-        padding: 2.5rem 1rem 1.5rem 1rem;
-        background: var(--background);
-        border-top: 1px solid var(--border);
-        color: var(--muted);
+        padding: 4rem 2rem 2rem 2rem;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+        );
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 1rem;
-        margin-top: 4rem;
+        margin-top: 6rem;
+        position: relative;
+      }
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
       }
       .footer-inner {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
         align-items: center;
         justify-content: space-between;
       }
       .footer-links {
         display: flex;
-        gap: 2rem;
+        gap: 2.5rem;
         flex-wrap: wrap;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
       .footer-links a {
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.6);
         font-weight: 500;
-        transition: color 0.2s;
+        font-size: 1.05rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition:
+          color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .footer-links a:hover {
         color: var(--foreground);
+        background-color: rgba(255, 255, 255, 0.05);
+        transform: translateY(-2px);
       }
       .footer-copy {
-        color: var(--border-subtle);
-        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        width: 100%;
       }
       @media (max-width: 768px) {
         .header-inner {
