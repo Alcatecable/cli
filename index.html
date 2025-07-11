@@ -1,59 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NeuroLint CLI – Automated Code Analysis & Transformation</title>
-    <meta name="description" content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase." />
+    <meta
+      name="description"
+      content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase."
+    />
     <link rel="icon" type="image/png" href="/favico.png" />
     <link rel="canonical" href="https://cli.neurolint.dev/" />
     <!-- Open Graph -->
-    <meta property="og:title" content="NeuroLint CLI – Automated Code Analysis & Transformation" />
-    <meta property="og:description" content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase." />
-    <meta property="og:image" content="https://cli.neurolint.dev/og-image.png" />
+    <meta
+      property="og:title"
+      content="NeuroLint CLI – Automated Code Analysis & Transformation"
+    />
+    <meta
+      property="og:description"
+      content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase."
+    />
+    <meta
+      property="og:image"
+      content="https://cli.neurolint.dev/og-image.png"
+    />
     <meta property="og:url" content="https://cli.neurolint.dev/" />
     <meta property="og:type" content="website" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="NeuroLint CLI – Automated Code Analysis & Transformation" />
-    <meta name="twitter:description" content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase." />
-    <meta name="twitter:image" content="https://cli.neurolint.dev/og-image.png" />
+    <meta
+      name="twitter:title"
+      content="NeuroLint CLI – Automated Code Analysis & Transformation"
+    />
+    <meta
+      name="twitter:description"
+      content="NeuroLint CLI brings advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cli.neurolint.dev/og-image.png"
+    />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "NeuroLint CLI",
-      "url": "https://cli.neurolint.dev/",
-      "applicationCategory": "DeveloperTool",
-      "operatingSystem": "Windows, macOS, Linux",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NeuroLint CLI",
+        "url": "https://cli.neurolint.dev/",
+        "applicationCategory": "DeveloperTool",
+        "operatingSystem": "Windows, macOS, Linux",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
-    }
     </script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --background: #000000;
-        --foreground: #fafafa;
+        --foreground: #ffffff;
         --primary: #ffffff;
         --primary-foreground: #000000;
-        --blue-accent: #0066ff;
-        --card: #1a1a1a;
-        --surface: #1a1a1a;
-        --border: #333333;
-        --muted: #a6a6a6;
-        --terminal-bg: #141414;
-        --terminal-text: #22c55e;
-        --font-sans: 'Inter', system-ui, sans-serif;
-        --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+        --card: #000000;
+        --surface: #000000;
+        --border: #4a4a4a;
+        --border-subtle: #666666;
+        --muted: #666666;
+        --font-sans: "Inter", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
       }
-      html, body {
+      html,
+      body {
         background: var(--background);
         color: var(--foreground);
         font-family: var(--font-sans);
@@ -70,7 +93,7 @@
         top: 0;
         z-index: 50;
         width: 100%;
-        background: rgba(0,0,0,0.95);
+        background: rgba(0, 0, 0, 0.95);
         border-bottom: 1px solid var(--border);
         backdrop-filter: blur(12px);
       }
@@ -106,9 +129,12 @@
         font-size: 1rem;
         padding: 0.5rem 1rem;
         border-radius: 8px;
-        transition: color 0.2s, background 0.2s;
+        transition:
+          color 0.2s,
+          background 0.2s;
       }
-      .nav a:hover, .nav a.active {
+      .nav a:hover,
+      .nav a.active {
         color: #fff;
         background: #23233b;
       }
@@ -120,7 +146,9 @@
         border-radius: 8px;
         border: none;
         cursor: pointer;
-        transition: background 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          color 0.2s;
         margin-left: 0.5rem;
       }
       .nav .btn:hover {
@@ -175,8 +203,11 @@
         border-radius: 12px;
         border: none;
         cursor: pointer;
-        transition: background 0.2s, color 0.2s, transform 0.2s;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        transition:
+          background 0.2s,
+          color 0.2s,
+          transform 0.2s;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
       }
       .hero-actions .btn:hover {
         background: #f5f5f5;
@@ -196,15 +227,17 @@
         border: 1.5px solid var(--border);
         border-radius: 18px;
         padding: 2.5rem 2rem 2rem 2rem;
-        box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        transition: border 0.2s, box-shadow 0.2s;
+        transition:
+          border 0.2s,
+          box-shadow 0.2s;
       }
       .feature-card:hover {
         border-color: var(--blue-accent);
-        box-shadow: 0 4px 32px rgba(0,102,255,0.10);
+        box-shadow: 0 4px 32px rgba(0, 102, 255, 0.1);
       }
       .feature-title {
         font-size: 1.4rem;
@@ -255,7 +288,8 @@
         font-size: 0.95rem;
       }
       @media (max-width: 700px) {
-        .header-inner, .footer-inner {
+        .header-inner,
+        .footer-inner {
           flex-direction: column;
           gap: 1rem;
         }
@@ -274,12 +308,43 @@
           NeuroLint
         </a>
         <nav class="nav">
-          <a href="https://app.neurolint.dev" target="_blank" rel="noopener noreferrer">App</a>
-          <a href="https://app.neurolint.dev" target="_blank" rel="noopener noreferrer">Dashboard</a>
-          <a href="https://docs.neurolint.dev" target="_blank" rel="noopener noreferrer">Docs</a>
-          <a href="https://forum.neurolint.dev" target="_blank" rel="noopener noreferrer">Forum</a>
-          <a href="https://app.neurolint.dev/login" target="_blank" rel="noopener noreferrer">Log In</a>
-          <a href="https://app.neurolint.dev/signup" target="_blank" rel="noopener noreferrer" class="btn">Sign Up</a>
+          <a
+            href="https://app.neurolint.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >App</a
+          >
+          <a
+            href="https://app.neurolint.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Dashboard</a
+          >
+          <a
+            href="https://docs.neurolint.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Docs</a
+          >
+          <a
+            href="https://forum.neurolint.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Forum</a
+          >
+          <a
+            href="https://app.neurolint.dev/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Log In</a
+          >
+          <a
+            href="https://app.neurolint.dev/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+            >Sign Up</a
+          >
         </nav>
       </div>
     </header>
@@ -288,38 +353,67 @@
       <img src="/cli/Bee logo.png" alt="NeuroLint CLI Logo" class="hero-logo" />
       <div class="typewriter" id="typewriter"></div>
       <div class="hero-desc">
-        The NeuroLint CLI brings the power of advanced code analysis and transformation to your terminal. Automate code quality, integrate with CI/CD, and batch-fix your codebase with a single command.
+        The NeuroLint CLI brings the power of advanced code analysis and
+        transformation to your terminal. Automate code quality, integrate with
+        CI/CD, and batch-fix your codebase with a single command.
       </div>
       <div class="hero-actions">
-        <a href="https://docs.neurolint.dev/cli" target="_blank" rel="noopener noreferrer" class="btn">Read CLI Docs</a>
-        <a href="https://npmjs.com/package/@neurolint/cli" target="_blank" rel="noopener noreferrer" class="btn">Install via npm</a>
+        <a
+          href="https://docs.neurolint.dev/cli"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+          >Read CLI Docs</a
+        >
+        <a
+          href="https://npmjs.com/package/@neurolint/cli"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn"
+          >Install via npm</a
+        >
       </div>
     </section>
     <!-- Features Section -->
     <section class="features">
       <div class="feature-card">
         <div class="feature-title">Automated Linting</div>
-        <div class="feature-desc">Run deep, multi-layer code analysis and transformation with a single command.</div>
+        <div class="feature-desc">
+          Run deep, multi-layer code analysis and transformation with a single
+          command.
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-title">CI/CD Integration</div>
-        <div class="feature-desc">Seamlessly integrate NeuroLint CLI into your pipelines for continuous code quality.</div>
+        <div class="feature-desc">
+          Seamlessly integrate NeuroLint CLI into your pipelines for continuous
+          code quality.
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-title">Batch Analysis</div>
-        <div class="feature-desc">Analyze and fix entire codebases, not just single files, with blazing speed.</div>
+        <div class="feature-desc">
+          Analyze and fix entire codebases, not just single files, with blazing
+          speed.
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-title">Instant Fixes</div>
-        <div class="feature-desc">Auto-fix common issues and apply best practices instantly.</div>
+        <div class="feature-desc">
+          Auto-fix common issues and apply best practices instantly.
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-title">Terminal Power</div>
-        <div class="feature-desc">All the power of NeuroLint, right from your terminal. No UI required.</div>
+        <div class="feature-desc">
+          All the power of NeuroLint, right from your terminal. No UI required.
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-title">Cross-Platform</div>
-        <div class="feature-desc">Works on Windows, macOS, and Linux. Consistent results everywhere.</div>
+        <div class="feature-desc">
+          Works on Windows, macOS, and Linux. Consistent results everywhere.
+        </div>
       </div>
     </section>
     <!-- Footer -->
@@ -334,7 +428,9 @@
           <a href="https://cli.neurolint.dev">CLI Tool</a>
           <a href="mailto:founder@neurolint.com">Contact</a>
         </div>
-        <div class="footer-copy">&copy; 2024 NeuroLint. All rights reserved.</div>
+        <div class="footer-copy">
+          &copy; 2024 NeuroLint. All rights reserved.
+        </div>
       </div>
     </footer>
     <script>
@@ -344,12 +440,12 @@
         "CI/CD Integration",
         "Batch Analysis",
         "Instant Fixes",
-        "Terminal Power"
+        "Terminal Power",
       ];
       let wordIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
-      let typewriterEl = document.getElementById('typewriter');
+      let typewriterEl = document.getElementById("typewriter");
       function type() {
         const word = words[wordIndex];
         if (isDeleting) {
