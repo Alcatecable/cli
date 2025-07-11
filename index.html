@@ -598,7 +598,7 @@
       </div>
     </footer>
     <script>
-      // Typewriter effect for hero
+      // Typewriter effect for hero with cursor
       const words = [
         "Automated Linting",
         "CI/CD Integration",
@@ -610,6 +610,36 @@
       let charIndex = 0;
       let isDeleting = false;
       let typewriterEl = document.getElementById("typewriter");
+
+      // Add cursor styling
+      const style = document.createElement("style");
+      style.textContent = `
+        .typewriter::after {
+          content: '|';
+          color: var(--foreground);
+          animation: blink 1s infinite;
+          margin-left: 2px;
+        }
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+        .hero {
+          animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
       function type() {
         const word = words[wordIndex];
         if (isDeleting) {
@@ -618,14 +648,14 @@
           charIndex++;
         }
         typewriterEl.textContent = word.substring(0, charIndex);
-        let delay = isDeleting ? 60 : 110;
+        let delay = isDeleting ? 50 : 90;
         if (!isDeleting && charIndex === word.length) {
-          delay = 1200;
+          delay = 1500;
           isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
           isDeleting = false;
           wordIndex = (wordIndex + 1) % words.length;
-          delay = 400;
+          delay = 300;
         }
         setTimeout(type, delay);
       }
